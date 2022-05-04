@@ -1,25 +1,22 @@
 /* eslint-disable require-jsdoc */
 class LoginPage {
-  private email: string;
-  private password: string;
+  private emailType: string;
+  private passwordType: string;
   private loginButton: string;
 
   constructor() {
-    this.email = "#email";
-    this.password = "#passwd";
+    this.emailType = "#email";
+    this.passwordType = "#passwd";
     this.loginButton = "div.form_content button span i.icon-lock";
   }
 
 
-  public emailType(): void {
-    cy.get(this.email).type("aperdomobo@gmail.com");
+  public login(email:string, password:string): void {
+    cy.get(this.emailType).type(email);
+    cy.get(this.passwordType).type(password);
   }
 
-  public passwordType(): void {
-    cy.get(this.password).type("WorkshopProtractor");
-  }
-
-  public loginValidated(): void {
+  public loginValidate(): void {
     cy.get(this.loginButton).click();
   }
 }
