@@ -39,23 +39,21 @@ describe("Buy a t-shirt", () => {
     // cy.get("#ordermsg").type("Cypress purchase process validation ");
     // cy.get("div.checker input").click();
     // cy.get("p.cart_navigation button").click();
-    addressStepPage.textAreaType();
-    addressStepPage.addressChecker();
     addressStepPage.checkout();
 
     // cy.get("div.checker input").click();
     // cy.get("p.cart_navigation button[name='processCarrier']").click();
-    // cy.get("p.payment_module a.bankwire").click();
-    // cy.get("p#cart_navigation button span").click();
     shippingStepPage.acceptTerms();
     shippingStepPage.checkout();
-    shippingStepPage.paymentModeSelect();
-    shippingStepPage.confirmOrder();
 
+    // cy.get("p.payment_module a.bankwire").click();
+    // cy.get("p#cart_navigation button span").click();
     // cy.get("#center_column > div > p > strong").should(
     //     "have.text",
     //     "Your order on My Store is complete.",
     // );
+    paymentStepPage.paymentModeSelect();
+    paymentStepPage.confirmOrder();
     paymentStepPage.completeAllTheProcess()
         .should(
             "have.text",
