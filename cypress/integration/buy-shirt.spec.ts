@@ -1,10 +1,11 @@
-import {MenuContentPage} from "../page/index";
-import {ProductListPage} from "../page/products-list.page";
-import {ShoppingCartPage} from "../page/shopping-cart.page";
-import {LoginPage} from "../page/login.page";
-import {AddressStepPage} from "../page/ address-step.page";
-import {ShippingStepPage} from "../page/shipping-step.page";
-import {PaymentStepPage} from "../page/ payment-step.page";
+import {MenuContentPage,
+  ProductListPage,
+  ShoppingCartPage,
+  LoginPage,
+  AddressStepPage,
+  ShippingStepPage,
+  PaymentStepPage,
+} from "../page/index";
 
 const menuContentPage = new MenuContentPage();
 const productListPage = new ProductListPage();
@@ -24,9 +25,7 @@ describe("Buy a t-shirt", () => {
     // cy.get("#center_column a.button.ajax_add_to_cart_button.btn.btn-default").click();
     // cy.get("#layer_cart").should("be.visible");
     // cy.get(".clearfix div.button-container > a").click();
-    productListPage.productSelect();
-    productListPage.modalViewForProductsInfo();
-    productListPage.checkoutSelectedClothes();
+    productListPage.proceedToCheckout();
 
     // cy.get(".cart_navigation span").click();
     shoppingCartPage.summaryCheckout();
@@ -34,9 +33,8 @@ describe("Buy a t-shirt", () => {
     // cy.get("#email").type("aperdomobo@gmail.com");
     // cy.get("#passwd").type("WorkshopProtractor");
     // cy.get("div.form_content button span i.icon-lock").click();
-    loginPage.emailType();
-    loginPage.passwordType();
-    loginPage.loginValidated();
+    loginPage.login("aperdomobo@gmail.com", "WorkshopProtractor");
+    loginPage.loginValidate();
 
     // cy.get("#ordermsg").type("Cypress purchase process validation ");
     // cy.get("div.checker input").click();
@@ -49,7 +47,7 @@ describe("Buy a t-shirt", () => {
     // cy.get("p.cart_navigation button[name='processCarrier']").click();
     // cy.get("p.payment_module a.bankwire").click();
     // cy.get("p#cart_navigation button span").click();
-    shippingStepPage.agreeTerms();
+    shippingStepPage.acceptTerms();
     shippingStepPage.checkout();
     shippingStepPage.paymentModeSelect();
     shippingStepPage.confirmOrder();
@@ -58,6 +56,9 @@ describe("Buy a t-shirt", () => {
     //     "have.text",
     //     "Your order on My Store is complete.",
     // );
-    paymentStepPage.completeAllTheProcess();
+    paymentStepPage.completeAllTheProcess()
+        .should(
+            "have.text",
+            "Your order on My Store is complete.");
   });
 });

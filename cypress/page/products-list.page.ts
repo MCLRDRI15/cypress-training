@@ -10,15 +10,9 @@ class ProductListPage {
     this.CheckoutButton = ".clearfix div.button-container > a";
   }
 
-  public productSelect(): void {
+  public proceedToCheckout(): void {
     cy.get(this.CartSelect).click();
-  }
-
-  public modalViewForProductsInfo(): void {
     cy.get(this.ModalView).should("be.visible");
-  }
-
-  public checkoutSelectedClothes(): void {
     cy.get(this.CheckoutButton).click();
   }
 }

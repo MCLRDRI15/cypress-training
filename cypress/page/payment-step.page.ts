@@ -7,11 +7,8 @@ class PaymentStepPage {
   }
 
 
-  public completeAllTheProcess(): void {
-    cy.get(this.OrderComplete).should(
-        "have.text",
-        "Your order on My Store is complete.",
-    );
+  public completeAllTheProcess(): any {
+    return cy.get(this.OrderComplete);
   }
 }
 

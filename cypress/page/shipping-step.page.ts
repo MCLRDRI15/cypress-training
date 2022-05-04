@@ -13,7 +13,7 @@ class ShippingStepPage {
   }
 
 
-  public agreeTerms(): void {
+  public acceptTerms(): void {
     cy.get(this.AgreeTerms).click();
   }
 
