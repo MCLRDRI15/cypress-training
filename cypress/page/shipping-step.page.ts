@@ -4,7 +4,7 @@ class ShippingStepPage {
   private Checkout: string;
 
   constructor() {
-    this.AgreeTerms = "div.checker input";
+    this.AgreeTerms = "div.checker input[name='cgv']";
     this.Checkout = "p.cart_navigation button[name='processCarrier']";
   }
 
