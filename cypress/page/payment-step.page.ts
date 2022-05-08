@@ -5,9 +5,9 @@ class PaymentStepPage {
   private ConfirmOrder: string;
 
   constructor() {
-    this.Bankwire = "p.payment_module a.bankwire";
-    this.ConfirmOrder = "p#cart_navigation button span";
-    this.OrderComplete = "#center_column > div > p > strong";
+    this.Bankwire = "a.bankwire";
+    this.ConfirmOrder = "#cart_navigation span";
+    this.OrderComplete = ".cheque-indent > strong.dark";
   }
 
 

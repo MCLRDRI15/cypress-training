@@ -5,9 +5,9 @@ class LoginPage {
   private loginButton: string;
 
   constructor() {
-    this.emailType = "form div.form-group > input#email";
-    this.passwordType = "form div.form-group > span input#passwd";
-    this.loginButton = "div.form_content button span i.icon-lock";
+    this.emailType = "#email";
+    this.passwordType = "#passwd";
+    this.loginButton = "#SubmitLogin";
   }
 
 

@@ -3,7 +3,7 @@ class ShoppingCartPage {
   private SummaryCheckoutButton: string;
 
   constructor() {
-    this.SummaryCheckoutButton = ".cart_navigation > a[title='Proceed to checkout'] span";
+    this.SummaryCheckoutButton = ".cart_navigation span";
   }
 
 
