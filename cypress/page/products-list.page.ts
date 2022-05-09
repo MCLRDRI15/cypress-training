@@ -5,9 +5,9 @@ class ProductListPage {
   private CheckoutButton: string;
 
   constructor() {
-    this.CartSelect = "#center_column a.button.ajax_add_to_cart_button.btn.btn-default";
+    this.CartSelect = ".ajax_add_to_cart_button > span";
     this.ModalView = "#layer_cart";
-    this.CheckoutButton = ".clearfix div.button-container > a";
+    this.CheckoutButton = "a[title='Proceed to checkout']";
   }
 
   public proceedToCheckout(): void {

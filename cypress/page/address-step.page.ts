@@ -3,7 +3,7 @@ class AddressStepPage {
   private AddressCheckout: string;
 
   constructor() {
-    this.AddressCheckout = "p.cart_navigation button";
+    this.AddressCheckout = "button[name='processAddress']";
   }
 
   public checkout(): void {
