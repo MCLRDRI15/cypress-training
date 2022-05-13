@@ -8,12 +8,11 @@
     "test": "cypress run",
     "lint": "eslint ./cypress/integration/**/*.ts",
     "lint:fix": "npm run lint -- --fix",
-    "delete:reports": "rm cypress/results/* || true",
-    "prereport": "npm run delete:reports",
+    "delete:reports": "rm -rf cypress/reports/*",
     "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/report.json",
     "generate-report": "marge cypress/reports/report.json -f report -o cypress/reports",
-    "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json",
-    "postreport": "npm run combine:reports"
+    "pretest": "npm run delete:reports",
+    "posttest": " npm run combine-reports && npm run generate-report"
   },
   "repository": {
     "type": "git",
