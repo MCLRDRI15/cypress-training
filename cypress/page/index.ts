@@ -6,3 +6,4 @@ export {AddressStepPage} from "./address-step.page";
 export {ShippingStepPage} from "./shipping-step.page";
 export {PaymentStepPage} from "./payment-step.page";
 export {DressesListPage} from "./dressesShop.page";
+export {PersonalFormPage} from "./personal-Form.page";
