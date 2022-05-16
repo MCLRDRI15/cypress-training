@@ -7,3 +7,4 @@ export {ShippingStepPage} from "./shipping-step.page";
 export {PaymentStepPage} from "./payment-step.page";
 export {DressesListPage} from "./dressesShop.page";
 export {UploadPage} from "./upload.page";
+export {DownloadPage} from "./download.page";
