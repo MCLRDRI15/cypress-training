@@ -1,4 +1,16 @@
 /* eslint-disable require-jsdoc */
+interface PersonalInformationTypes {
+  name: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  mobileNumber:string;
+  hobbies: string[];
+  currentAddress: string;
+  state: string;
+  city: string;
+}
+
 class PersonalFormPage {
   private toolsQaFormURL: string;
   private firstName: string;
@@ -11,7 +23,6 @@ class PersonalFormPage {
   private submit: string;
   private submitting: string;
   private state: string;
-  private stateOptions: string;
   private city: string;
 
   constructor() {
@@ -19,12 +30,11 @@ class PersonalFormPage {
     this.firstName = "#firstName";
     this.lastName = "#lastName";
     this.email = "#userEmail";
-    this.gender = "#genterWrapper .col-md-9";
+    this.gender = "#genterWrapper input";
     this.mobileNumber = "#userNumber";
     this.hobbies = "#hobbiesWrapper .col-md-9";
     this.currentAddresss = "#currentAddress";
     this.state = "#state";
-    this.stateOptions = ".css-26l3qy-menu";
     this.city = "#city";
     this.submit = "#userForm";
     this.submitting = ".modal-title";
@@ -35,12 +45,12 @@ class PersonalFormPage {
   }
 
   private findGenderByName(name: string): any {
-    return cy.get(this.gender).filter(`:contains("${name}")`);
+    return cy.get(this.gender).filter(`[value="${name}"]`);
   }
 
   private findHobbiesByName(hobbies: string[]): any {
-    hobbies.forEach((hobbie) => {
-      cy.get(this.hobbies).find(`label:contains("${hobbie}")`).click();
+    hobbies.forEach((hobby) => {
+      cy.get(this.hobbies).find(`label:contains("${hobby}")`).click();
     });
   }
 
@@ -48,17 +58,15 @@ class PersonalFormPage {
     cy.visit(this.toolsQaFormURL);
   }
 
-  public fillForm(personalInformation: any): void {
+  public fillForm(personalInformation: PersonalInformationTypes): void {
     cy.get(this.firstName).type(personalInformation.name);
     cy.get(this.lastName).type(personalInformation.lastName);
     cy.get(this.email).type(personalInformation.email);
-    this.findGenderByName(personalInformation.gender).find(`label:contains("${personalInformation.gender}")`).click();
-    expect(personalInformation.mobileNumber).to.have.lengthOf(10);
+    this.findGenderByName(personalInformation.gender).check({force: true});
     cy.get(this.mobileNumber).type(personalInformation.mobileNumber);
     this.findHobbiesByName(personalInformation.hobbies);
     cy.get(this.currentAddresss).type(personalInformation.currentAddress);
-    cy.get(this.state).click();
-    cy.get(this.state).type(`${personalInformation.state}{enter}`);
+    cy.get(this.state).click().type(`${personalInformation.state}{enter}`);
     cy.get(this.city).click();
     cy.get(this.city).type(`${personalInformation.city}{enter}`);
     cy.get(this.submit).submit();
