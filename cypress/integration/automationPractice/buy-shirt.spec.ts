@@ -5,7 +5,7 @@ import {MenuContentPage,
   AddressStepPage,
   ShippingStepPage,
   PaymentStepPage,
-} from "../page/index";
+} from "../../page/index";
 
 describe("Buy a t-shirt", () => {
   let menuContentPage: MenuContentPage;
