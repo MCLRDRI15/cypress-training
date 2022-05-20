@@ -23,21 +23,26 @@ class DownloadPage {
     cy.visit(this.pageURL);
   }
 
-  setDownloadFile() {
-    cy.get(this.downloadTxtFile).type("this is the first test sentence to generate the Txt download file");
+  setTxtContent(content: string) {
+    cy.get(this.downloadTxtFile).type(content);
+  }
+
+  setDownloadTxtFile() {
     cy.get(this.generateTxtFile).click();
     cy.get(this.TxtDownloadButton).click();
-    cy.get(this.downloadPdfFile).type("this is the first test sentence to generate the PDF download file");
+  }
+
+  setPdfContent(content: string) {
+    cy.get(this.downloadPdfFile).type(content);
+  }
+
+  setDownloadPdfFile() {
     cy.get(this.generatePdfFile).click();
     cy.get(this.TxtDownPdfButton).click();
   }
 
-  getDownloadTxtFile(): any {
-    return cy.readFile("cypress/downloads/info.txt");
-  }
-
-  getDownloadPDFFile(): any {
-    return cy.readFile("cypress/downloads/info.pdf");
+  getFileContent(path: string): any {
+    return cy.readFile(path);
   }
 }
 

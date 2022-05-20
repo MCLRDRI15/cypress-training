@@ -21,7 +21,7 @@ class UploadPage {
     cy.get(this.uploadButton).click();
   }
 
-  getUploadFile() {
+  getUploadedFileName() {
     return cy.get(this.uploadedFileName);
   }
 }
