@@ -25,11 +25,11 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import "cypress-file-upload";
+import "cypress-iframe";
 
 // Ignoring uncaught exceptions since errors from external apps should not stop de workshop
 Cypress.on("uncaught:exception", (err, runnable) => {
-// returning false here prevents Cypress from
-// failing the test
+  // returning false here prevents Cypress from
+  // failing the test
   return false;
 });
-
