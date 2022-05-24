@@ -26,7 +26,6 @@
 
 import "cypress-file-upload";
 import "cypress-iframe";
-require("cypress-iframe");
 
 // Ignoring uncaught exceptions since errors from external apps should not stop de workshop
 Cypress.on("uncaught:exception", (err, runnable) => {

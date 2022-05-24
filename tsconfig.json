@@ -7,6 +7,6 @@
     "lib": ["es5", "dom"],
     "types": ["cypress", "node", "cypress-file-upload"]
   },
-  "include": ["cypress/**/*.ts"],
+  "include": ["cypress/**/*.ts", "cypress/support/commands.ts"],
   "exclude": ["node_modules/"]
 }
