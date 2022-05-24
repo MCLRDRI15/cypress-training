@@ -4,11 +4,13 @@ class IframePage {
   private urlPage: string;
   private titleSelect: string;
   private cssPagebutton: string;
+  private cssURL: string;
 
   constructor() {
     this.urlPage = "https://www.w3schools.com/html/html_iframe.asp";
     this.titleSelect = "[title='W3Schools HTML Tutorial']";
     this.cssPagebutton = "a[title='CSS Tutorial']";
+    this.cssURL = "https://www.w3schools.com/css/default.asp";
   }
   public visit(): void {
     cy.visit(this.urlPage);
@@ -21,7 +23,7 @@ class IframePage {
   public goToCssPageInFrame():any {
     cy.iframe(this.titleSelect).find(this.cssPagebutton).click();
     cy.frameLoaded(this.titleSelect, {
-      url: "https://www.w3schools.com/css/default.asp",
+      url: this.cssURL,
     });
   }
 }
