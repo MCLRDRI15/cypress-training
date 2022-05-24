@@ -9,7 +9,7 @@ class IframePage {
   constructor() {
     this.urlPage = "https://www.w3schools.com/html/html_iframe.asp";
     this.titleSelect = "[title='W3Schools HTML Tutorial']";
-    this.cssPagebutton = "a[title='CSS Tutorial']";
+    this.cssPagebutton = "[title='CSS Tutorial']";
     this.cssURL = "https://www.w3schools.com/css/default.asp";
   }
   public visit(): void {
