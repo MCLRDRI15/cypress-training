@@ -1,4 +1,5 @@
 /* eslint-disable require-jsdoc */
+
 class IframePage {
   private urlPage: string;
   private titleSelect: string;
@@ -14,13 +15,14 @@ class IframePage {
   }
 
   public getFrameTitle(): any {
-    return cy.get(this.titleSelect).its("0.contentDocument").its("body").then(cy.wrap).find("h1");
+    return cy.iframe(this.titleSelect).find("h1").its(0);
   }
 
-  public goToCssPageInFrame(): any {
-    cy.get(this.titleSelect).its("0.contentDocument").its("body").then(cy.wrap).find(this.cssPagebutton).click();
-    return cy.get(this.titleSelect).its("0.contentDocument").its("body").then(cy.wrap)
-        .filter(":contains('CSS Tutorial')");
+  public goToCssPageInFrame():any {
+    cy.iframe(this.titleSelect).find(this.cssPagebutton).click();
+    cy.frameLoaded(this.titleSelect, {
+      url: "https://www.w3schools.com/css/default.asp",
+    });
   }
 }
 
