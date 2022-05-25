@@ -4,7 +4,6 @@
         "reporterEnabled": "mochawesome",
         "mochawesomeReporterOptions": {
             "reportDir": "cypress/reports/mocha",
-            "chromeWebSecurity": false,
             "quite": true,
             "overwrite": false,
             "html": false,
@@ -14,5 +13,6 @@
   "video": false,
   "screenshotOnRunFailure": false,
   "defaultCommandTimeout": 20000,
-  "responseTimeout": 20000
+  "responseTimeout": 20000,
+  "chromeWebSecurity": false
 }
