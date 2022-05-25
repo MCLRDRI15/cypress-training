@@ -11,8 +11,6 @@ describe("The user should navigates to W3School page", () => {
   it("The user should be able to see the title HTML Tutorials inside the iframe tag", () => {
     // Arrange
     iframePage.visit();
-    // Action
-    iframePage.getFrameTitle();
     // Assert
     iframePage.getFrameTitle().should("include.text", "HTML Tutorial");
   });
